@@ -1,0 +1,54 @@
+.increment-button {
+  border: 0.05em #777 solid;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  padding: 0.25em 0.5em;
+  font-size: 14px;
+  outline: none;
+  background-color: #ededed;
+}
+
+.increment-button:hover,
+.increment-button:focus {
+  background-color: #c0c0c0;
+}
+
+.joke-amount-section {
+  margin: 1em 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+#joke-amount {
+  border: 0.05em #777 solid;
+  height: 30px;
+  font-size: 14px;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  outline: none;
+  background-color: #ededed;
+}
+
+.amount-label {
+  margin-right: 1em;
+}
+
+.submit-button {
+  width: 90%;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  border: 0.05em solid #777;
+  border-radius: 0.25em;
+  background-color: #ededed;
+  box-shadow: 0 1px 5px #777;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  background-color: #777;
+}
+
+/* hsl(200, 100%, 70%); */

@@ -1,0 +1,14 @@
+.heart-button {
+    border: 0px;
+    transition: none;
+    margin: 5px 5px 5px 15px;
+}
+
+.heart-button:hover {
+    cursor: pointer;
+}
+
+.heart-button:focus,
+.heart-button:focus-visible {
+    outline: none;
+}
