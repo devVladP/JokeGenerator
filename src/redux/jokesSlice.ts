@@ -3,7 +3,6 @@ import type { JokeApiResponse } from "../types/JokeApiResponse";
 import type { Joke } from "../types/Joke";
 
 const initialState: Joke[] = [];
-const jokePrefix = "joke:";
 
 const jokesSlice = createSlice({
   name: "jokes",
@@ -36,14 +35,12 @@ const jokesSlice = createSlice({
       const joke = state.find((joke) => joke.id == action.payload);
       if (joke) {
         joke.isFavourite = true;
-        localStorage.setItem(`${jokePrefix}${joke.id}`, JSON.stringify(joke));
       }
     },
     makeUnfavourite: (state, action) => {
       const id = action.payload;
-      localStorage.removeItem(`${jokePrefix}${id}`);
 
-      const joke = state.find((joke) => joke.id == action.payload);
+      const joke = state.find((joke) => joke.id == id);
       if (joke) {
         joke.isFavourite = false;
       }

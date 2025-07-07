@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
-import type { Joke } from "../types/Joke";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
+import { setFavJokes } from "../redux/favJokesSlice";
 
 export interface FilterValues {
   type?: "single" | "twopart" | undefined;
@@ -7,26 +9,11 @@ export interface FilterValues {
 }
 
 export function useFilteredJokes(filter: FilterValues) {
-  const [jokes, setJokes] = useState<Joke[]>([]);
+  const dispatch = useDispatch();
+  const allJokes = useSelector((state: RootState) => state.favJokes);
+  console.log(allJokes);
 
   useEffect(() => {
-    const allJokes: Joke[] = [];
-
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith("joke:")) {
-        const raw = localStorage.getItem(key);
-        if (!raw) continue;
-
-        try {
-          const parsed: Joke = JSON.parse(raw);
-          allJokes.push(parsed);
-        } catch {
-          console.warn("Invalid JSON at", key);
-        }
-      }
-    }
-
     const filtered = allJokes.filter((joke) => {
       if (filter.type && joke.type !== filter.type) return false;
 
@@ -39,8 +26,8 @@ export function useFilteredJokes(filter: FilterValues) {
       return true;
     });
 
-    setJokes(filtered);
+    dispatch(setFavJokes(filtered));
   }, [filter]);
 
-  return jokes;
+  return allJokes;
 }
