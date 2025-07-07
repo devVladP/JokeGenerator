@@ -1,10 +1,10 @@
 import "./HeartsSvg.css";
 
-interface HeartSvgProps{
-    filled: boolean
+interface HeartSvgProps {
+  filled: boolean;
 }
 
-export default function HeartSvg({ filled } : HeartSvgProps) {
+export default function HeartSvg({ filled }: HeartSvgProps) {
   return (
     <div className="heart-wrapper">
       <svg
@@ -20,7 +20,7 @@ export default function HeartSvg({ filled } : HeartSvgProps) {
           19.58 3 22 5.42 22 8.5
           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
           fill="transparent"
-          stroke="black"
+          stroke="#01458f"
         />
       </svg>
       <svg

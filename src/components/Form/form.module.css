@@ -19,17 +19,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: 80%;
 }
 
 #joke-amount {
   border: 0.05em #777 solid;
-  height: 30px;
+  height: 39px;
   font-size: 14px;
   text-align: center;
   padding: 0.25em 0.5em;
   outline: none;
   background-color: #ededed;
+  box-sizing: border-box;
 }
 
 .amount-label {
@@ -37,18 +38,96 @@
 }
 
 .submit-button {
-  width: 90%;
-  margin: 0.5em auto;
-  padding: 0.5em;
-  border: 0.05em solid #777;
+  width: 80%;
+  margin: 0.5em 0;
+  padding: 1em 0.5em;
+  font-weight: bold;
   border-radius: 0.25em;
-  background-color: #ededed;
-  box-shadow: 0 1px 5px #777;
+  background-color: #619bcb;
+  transition: transform 0.2s ease;
+  border: 0;
 }
 
-.submit-button:hover,
-.submit-button:focus {
-  background-color: #777;
+.submit-button:hover {
+  background-color: #0a5798;
+  color: white;
+  box-shadow: #00000053 0px 1px 5px;
+  transform: scale(1.03);
 }
 
-/* hsl(200, 100%, 70%); */
+.jokes-form-item {
+  width: 90%;
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid #3087cc;
+  display: flex;
+  flex-direction: column;
+}
+
+.jokes-form-item:last-child {
+  border-bottom: none;
+}
+
+.radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.search {
+  width: 80%;
+  padding: 1rem;
+  color: #fff;
+  background-color: #005699;
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  border: none;
+  font-size: 1rem;
+}
+
+.search::placeholder {
+  color: white;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  gap: 0.5rem;
+  user-select: none;
+  color: white;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  background-color: #005699;
+  border-radius: 4px;
+  position: relative;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    border-radius 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  border-radius: 50%;
+  background-color: #2677ba;
+  border-color: #005699;
+}

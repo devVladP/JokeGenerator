@@ -1,7 +1,9 @@
+import styles from "./footer.module.css";
+
 export default function Footer() {
   return (
-    <footer className="footer">
-      <p>Website made by Vladyslav Pas. All rights is mine</p>
+    <footer className={styles.footer}>
+      <p>Website made by Vladyslav Pas. All rights are registered</p>
     </footer>
   );
 }

@@ -1,0 +1,26 @@
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-top: 1px solid #005592;
+  border-bottom: 1px solid #327dbc;
+  margin: 10px 10% 0;
+  width: 80%;
+}
+
+.links {
+  display: flex;
+  flex: 1 1 70%;
+  min-width: 300px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+  background-color: #3f84c1;
+  border-top-right-radius: 1rem;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  padding-left: 1rem;
+}

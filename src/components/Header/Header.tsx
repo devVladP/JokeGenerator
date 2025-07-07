@@ -1,10 +1,11 @@
 import Logo from "./Logo";
+import styles from "./header.module.css";
 
 export default function Header() {
   return (
-    <div className="header">
+    <div className={styles["header"]}>
       <Logo />
-      <h1 className="logo-text">Best Jokes</h1>
+      <h1 className={styles["logo-text"]}>Best Jokes</h1>
     </div>
   );
 }

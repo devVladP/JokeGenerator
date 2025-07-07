@@ -17,9 +17,9 @@ export function MultipleSelect({
   const [highlightedIndex, setHighlightedIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  function clearOptions() {
-    onChange([]);
-  }
+  // function clearOptions() {
+  //   onChange([]);
+  // }
 
   function selectOption(option: SelectOption) {
     if (value.includes(option)) {

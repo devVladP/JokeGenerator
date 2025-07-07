@@ -37,6 +37,7 @@ export function SingleSelect({ value, onChange, options }: SingleSelectProps) {
     >
       <span className={styles.value}>{value?.label}</span>
       <button
+        type="button"
         onClick={(e) => {
           e.stopPropagation();
           clearOptions();

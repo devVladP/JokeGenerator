@@ -13,6 +13,7 @@ export default function FavButton({ joke }: FavButtonProps) {
   const dispatch = useDispatch<AppDispatch>();
 
   function handleFavouriteToggle() {
+    console.log(joke.isFavourite);
     if (joke.isFavourite) {
       dispatch(makeUnfavourite(joke.id));
     } else {

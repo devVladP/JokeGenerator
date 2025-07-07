@@ -2,19 +2,22 @@ import type { Joke } from "../../types/Joke";
 import FavButton from "../FavButton/FavButton";
 import JokeText from "../JokeText/JokeText";
 import Tags from "../Tags/Tags";
+import styles from "./jokeList.module.css";
 
-interface JokesListItemProps{
-    joke: Joke
+interface JokesListItemProps {
+  joke: Joke;
 }
 
-export default function JokesListItem({ joke } : JokesListItemProps) {
+export default function JokesListItem({ joke }: JokesListItemProps) {
   return (
     <li className="">
-      <div className="joke-wrapper">
-        <JokeText joke={joke} />
+      <div className={styles["joke-wrapper"]}>
+        <div>
+          <JokeText joke={joke} />
+          <Tags activeFlags={joke.activeFlags} />
+        </div>
         <FavButton joke={joke} />
       </div>
-      <Tags activeFlags={joke.activeFlags} />
     </li>
   );
 }

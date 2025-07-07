@@ -1,7 +1,7 @@
-import JokesForm from "../Form/JokesForm";
+import FavJokesForm, { type FavJokesFormProps } from "../Form/FavJokesForm";
 import styles from "./sidebar.module.css";
 
-export default function Sidebar() {
+export default function FavSideBar({ onSearch }: FavJokesFormProps) {
   return (
     <div className={styles.sidebar}>
       <div className={styles["filter-logo-section"]}>
@@ -12,7 +12,7 @@ export default function Sidebar() {
         />
         <h2 className={styles["filters-title"]}>Filters</h2>
       </div>
-      <JokesForm />
+      <FavJokesForm onSearch={onSearch} />
     </div>
   );
 }

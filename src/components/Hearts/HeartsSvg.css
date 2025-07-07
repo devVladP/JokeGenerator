@@ -15,7 +15,7 @@
 
 .heart-back:hover,
 .heart-fill:hover {
-    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 1));
+  filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 1));
 }
 
 .heart-fill {
@@ -30,5 +30,5 @@
 }
 
 .heart-button {
-    background-color: transparent;
+  background-color: transparent;
 }

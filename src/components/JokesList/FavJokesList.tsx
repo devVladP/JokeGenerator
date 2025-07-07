@@ -1,31 +1,36 @@
 import type { Joke } from "../../types/Joke";
 import JokesListItem from "./JokesListItem";
+import styles from "./jokeList.module.css";
 
-export default function FavJokesList() {
-  const jokes = getAllLocalStorage();
+interface FavJokesListProps {
+  jokes: Joke[];
+}
 
-  function getAllLocalStorage(): [id: string, value: Joke][] {
-    const result: [id: string, value: Joke][] = [];
+export default function FavJokesList({ jokes }: FavJokesListProps) {
+  // const jokes = getAllLocalStorage();
 
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith("joke:")) {
-        const rawValue = localStorage.getItem(key);
-        const value = JSON.parse(rawValue as string) as Joke;
-        if (value) result.push([key, value]);
-      }
-    }
+  // function getAllLocalStorage(): [id: string, value: Joke][] {
+  //   const result: [id: string, value: Joke][] = [];
 
-    return result;
-  }
+  //   for (let i = 0; i < localStorage.length; i++) {
+  //     const key = localStorage.key(i);
+  //     if (key && key.startsWith("joke:")) {
+  //       const rawValue = localStorage.getItem(key);
+  //       const value = JSON.parse(rawValue as string) as Joke;
+  //       if (value) result.push([key, value]);
+  //     }
+  //   }
+
+  //   return result;
+  // }
 
   return (
-    <>
-      <ol className="favJokesList">
+    <div className={styles.section}>
+      <ol className={styles["jokes-list"]}>
         {jokes.map((joke) => (
-          <JokesListItem key={joke[0]} joke={joke[1]} />
+          <JokesListItem key={joke.id} joke={joke} />
         ))}
       </ol>
-    </>
+    </div>
   );
 }

@@ -40,10 +40,12 @@ const jokesSlice = createSlice({
       }
     },
     makeUnfavourite: (state, action) => {
+      const id = action.payload;
+      localStorage.removeItem(`${jokePrefix}${id}`);
+
       const joke = state.find((joke) => joke.id == action.payload);
       if (joke) {
         joke.isFavourite = false;
-        localStorage.removeItem(`${jokePrefix}${joke.id}`);
       }
     },
   },
