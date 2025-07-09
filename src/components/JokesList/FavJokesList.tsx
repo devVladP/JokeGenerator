@@ -1,36 +1,33 @@
 import type { Joke } from "../../types/Joke";
+import Pagination from "../pagination/Pagination";
 import JokesListItem from "./JokesListItem";
 import styles from "./jokeList.module.css";
+import { paginate } from "../../utils/paginate";
+import { useState } from "react";
 
 interface FavJokesListProps {
   jokes: Joke[];
 }
 
+const PAGE_SIZE = 5;
+
 export default function FavJokesList({ jokes }: FavJokesListProps) {
-  // const jokes = getAllLocalStorage();
+  const [currentPage, setCurrentPage] = useState(1);
 
-  // function getAllLocalStorage(): [id: string, value: Joke][] {
-  //   const result: [id: string, value: Joke][] = [];
-
-  //   for (let i = 0; i < localStorage.length; i++) {
-  //     const key = localStorage.key(i);
-  //     if (key && key.startsWith("joke:")) {
-  //       const rawValue = localStorage.getItem(key);
-  //       const value = JSON.parse(rawValue as string) as Joke;
-  //       if (value) result.push([key, value]);
-  //     }
-  //   }
-
-  //   return result;
-  // }
+  const { pageItems, totalPages } = paginate(jokes, currentPage, PAGE_SIZE);
 
   return (
     <div className={styles.section}>
       <ol className={styles["jokes-list"]}>
-        {jokes.map((joke) => (
+        {pageItems.map((joke) => (
           <JokesListItem key={joke.id} joke={joke} />
         ))}
       </ol>
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 }

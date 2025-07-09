@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  margin: 1rem auto;
+  gap: 0.5rem;
+}
+
+.page {
+  background-color: #2677ba;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.page.active {
+  background-color: #005699;
+  color: white;
+}

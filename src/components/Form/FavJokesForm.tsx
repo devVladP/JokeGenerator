@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { SelectOption } from "../../types/SelectOptions";
 import type { FilterValues } from "../../hooks/useFilteredJokes";
 
-interface FavJokesFormProps {
+export interface FavJokesFormProps {
   onSearch: (filter: FilterValues) => void;
 }
 
@@ -58,11 +58,13 @@ export default function FavJokesForm({ onSearch }: FavJokesFormProps) {
           onChange={(o) => setSelectedFlags(o)}
         />
       </div>
+
       <div className={styles["jokes-form-item"]}>
         <button className={styles["submit-button"]} type="submit">
           Find jokes
         </button>
       </div>
+      {/* Make clear button */}
     </form>
   );
 }

@@ -8,6 +8,7 @@ import FavSideBar from "../Sidebar/FavSidebar";
 
 export default function FavJokesPage() {
   const [filters, setFilters] = useState<FilterValues>({ flags: [] });
+  const [currentPage, setCurrentPage] = useState(1);
   const filteredJokes = useFilteredJokes(filters);
 
   return (
