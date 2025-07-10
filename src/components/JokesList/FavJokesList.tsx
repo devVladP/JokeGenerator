@@ -3,7 +3,8 @@ import Pagination from "../pagination/Pagination";
 import JokesListItem from "./JokesListItem";
 import styles from "./jokeList.module.css";
 import { paginate } from "../../utils/paginate";
-import { useState } from "react";
+import CurrentPageContext from "../../context/CurrentPageContext";
+import { use } from "react";
 
 interface FavJokesListProps {
   jokes: Joke[];
@@ -12,8 +13,7 @@ interface FavJokesListProps {
 const PAGE_SIZE = 5;
 
 export default function FavJokesList({ jokes }: FavJokesListProps) {
-  const [currentPage, setCurrentPage] = useState(1);
-
+  const { currentPage, setCurrentPage } = use(CurrentPageContext);
   const { pageItems, totalPages } = paginate(jokes, currentPage, PAGE_SIZE);
 
   return (

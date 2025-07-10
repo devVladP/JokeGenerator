@@ -5,16 +5,18 @@ import {
 } from "../../hooks/useFilteredJokes";
 import FavJokesList from "../JokesList/FavJokesList";
 import FavSideBar from "../Sidebar/FavSidebar";
+import CurrentPageContextProvider from "../../context/CurrentPageContextProvider";
 
 export default function FavJokesPage() {
   const [filters, setFilters] = useState<FilterValues>({ flags: [] });
-  const [currentPage, setCurrentPage] = useState(1);
   const filteredJokes = useFilteredJokes(filters);
 
   return (
     <div className="content">
-      <FavSideBar onSearch={setFilters} />
-      <FavJokesList jokes={filteredJokes} />
+      <CurrentPageContextProvider>
+        <FavSideBar onSearch={setFilters} />
+        <FavJokesList jokes={filteredJokes} />
+      </CurrentPageContextProvider>
     </div>
   );
 }
